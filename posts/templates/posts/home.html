@@ -1,0 +1,27 @@
+{% extends 'posts/base.html' %}
+
+{% block title %}Inicio - Mi Blog{% endblock %}
+
+{% block content %}
+<div class="posts-container">
+    <h1>Últimos Posts</h1>
+    
+    {% if posts %}
+        {% for post in posts %}
+            <article class="post">
+                <h2>{{ post.titulo }}</h2>
+                <p>
+                    Por: {{ post.autor.nombre }} | 
+                    Categoría: {{ post.categoria.nombre }} |
+                    Fecha: {{ post.fecha_publicacion|date:"d/m/Y" }}
+                </p>
+                <div>
+                    {{ post.contenido|truncatewords:50 }}
+                </div>
+            </article>
+        {% endfor %}
+    {% else %}
+        <p>No hay posts disponibles.</p>
+    {% endif %}
+</div>
+{% endblock %}

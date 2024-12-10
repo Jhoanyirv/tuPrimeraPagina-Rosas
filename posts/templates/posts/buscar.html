@@ -1,0 +1,27 @@
+{% extends 'posts/base.html' %}
+
+{% block title %}Buscar Posts{% endblock %}
+
+{% block content %}
+<div class="form-container">
+    <h1>Buscar Posts</h1>
+    
+    <form method="GET">
+        {{ form.as_p }}
+        <button type="submit">Buscar</button>
+    </form>
+
+    {% if posts %}
+        <h2>Resultados:</h2>
+        {% for post in posts %}
+            <article class="post">
+                <h3>{{ post.titulo }}</h3>
+                <p>Por: {{ post.autor.nombre }}</p>
+                <div>{{ post.contenido|truncatewords:30 }}</div>
+            </article>
+        {% endfor %}
+    {% elif request.GET %}
+        <p>No se encontraron posts.</p>
+    {% endif %}
+</div>
+{% endblock %}

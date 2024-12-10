@@ -1,0 +1,15 @@
+{% extends 'posts/base.html' %}
+
+{% block title %}Nuevo Autor{% endblock %}
+
+{% block content %}
+<div class="form-container">
+    <h1>Crear Nuevo Autor</h1>
+    
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Guardar Autor</button>
+    </form>
+</div>
+{% endblock %}

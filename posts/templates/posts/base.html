@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %}Mi Blog{% endblock %}</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        nav {
+            background-color: #f4f4f4;
+            padding: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        nav a {
+            margin-right: 1rem;
+            text-decoration: none;
+            color: #333;
+        }
+
+        .form-container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        button {
+            background-color: #007bff;
+            color: white;
+            padding: 0.5rem 1rem;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="{% url 'home' %}">Inicio</a>
+        <a href="{% url 'crear_autor' %}">Nuevo Autor</a>
+        <a href="{% url 'crear_categoria' %}">Nueva Categoría</a>
+        <a href="{% url 'crear_post' %}">Nuevo Post</a>
+        <a href="{% url 'buscar' %}">Buscar</a>
+    </nav>
+    
+    {% block content %}
+    {% endblock %}
+</body>
+</html>
